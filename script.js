@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let speedMultiplier = 1.0;
   const speeds = [1.0, 1.5, 0.5];
   let speedIndex = 0;
-  const BASE_ANGULAR_VELOCITY = 0.0038; // ~32s full revolution
+  const BASE_ANGULAR_VELOCITY = 0.0020; // ~60s full revolution — slower to reduce distraction
 
   // Drag / scrub interaction state
   let isDragging = false;
