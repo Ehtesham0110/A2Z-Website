@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>A2Z Computers — Everything Tech. All in One Place.</title>
+  <meta name="description" content="A2Z Computers: Your premier destination for pro laptops, custom workstations, 4K displays, laser printers, hardware components, and professional IT solutions.">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=yellow_v3">
+</head>
+<body>
+  <div class="site-wrapper" id="siteWrapper">
+    <!-- Atmospheric Ambient Canvas -->
+    <div class="ambient-glow" aria-hidden="true"></div>
+    <div class="orbital-track-svg-wrap" aria-hidden="true">
+      <svg class="orbital-guide-svg" id="orbitalGuideSvg" viewBox="0 0 1000 600" preserveAspectRatio="none">
+        <path id="orbitalTrackPath" class="orbital-guide-path" d="" />
+      </svg>
+    </div>
+
+    <!-- Site Header -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-container">
+        <!-- Brand Wordmark -->
+        <a href="#home" class="brand-wordmark" aria-label="A2Z Computers Home">
+          <div class="brand-logo-badge">
+            <span class="badge-letter">A2Z</span>
+          </div>
+          <div class="brand-title-wrap">
+            <span class="brand-name">A2Z</span>
+            <span class="brand-subtitle">COMPUTERS</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <ul class="nav-list">
+            <li><a href="laptops.html" class="nav-link">Laptops</a></li>
+            <li><a href="monitors.html" class="nav-link">Monitors</a></li>
+            <li><a href="desktops.html" class="nav-link">Desktop PCs</a></li>
+            <li><a href="#products" class="nav-link active" data-nav="products">Hardware</a></li>
+            <li><a href="#custom-builds" class="nav-link" data-nav="custom-builds">Workstations</a></li>
+            <li><a href="#repairs" class="nav-link" data-nav="repairs">Repairs &amp; IT</a></li>
+            <li><a href="#business" class="nav-link" data-nav="business">Enterprise</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button type="button" class="btn-enquiry" id="btnHeaderEnquire" aria-haspopup="dialog" aria-expanded="false">
+            <span>Enquire Now</span>
+            <svg class="icon-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenuDrawer">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div class="mobile-drawer" id="mobileMenuDrawer" aria-hidden="true">
+        <div class="mobile-drawer-content">
+          <ul class="mobile-nav-list">
+            <li><a href="laptops.html" class="mobile-nav-link mobile-nav-featured">Laptops</a></li>
+            <li><a href="monitors.html" class="mobile-nav-link mobile-nav-featured">Monitors</a></li>
+            <li><a href="desktops.html" class="mobile-nav-link mobile-nav-featured">Desktop PCs</a></li>
+            <li><a href="#products" class="mobile-nav-link" data-nav="products">Hardware</a></li>
+            <li><a href="#custom-builds" class="mobile-nav-link" data-nav="custom-builds">Workstations</a></li>
+            <li><a href="#repairs" class="mobile-nav-link" data-nav="repairs">Repairs &amp; IT</a></li>
+            <li><a href="#business" class="mobile-nav-link" data-nav="business">Enterprise</a></li>
+          </ul>
+          <div class="mobile-drawer-actions">
+            <button type="button" class="btn-enquiry btn-full-width" id="btnMobileEnquire">
+              <span>Contact Tech Desk</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN HERO STAGE -->
+    <main class="hero-stage" id="heroStage">
+      <!-- 3D Orbital Scene Layer -->
+      <div class="orbit-viewport" id="orbitViewport" aria-label="Interactive 3D Hardware Orbit">
+        <!-- Products will be positioned dynamically along the 3D elliptical trajectory -->
+        <div class="orbit-track" id="orbitTrack">
+          <!-- 8 Hardware Product Cards dynamically rendered & animated via JS -->
+        </div>
+      </div>
+
+      <!-- Central Hero Content Layer (Positioned with depth layering) -->
+      <section class="central-hero" id="centralHero">
+        <div class="hero-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span class="badge-text">A2Z COMPUTERS • MUMBAI TECH HUB</span>
+        </div>
+
+        <h1 class="hero-headline">
+          <span class="headline-line">Everything Tech.</span>
+          <span class="headline-line highlight">All in One Place.</span>
+        </h1>
+
+        <p class="hero-supporting">
+          Your destination for laptops, computer hardware, repairs and IT solutions.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#products" class="btn-cta-primary" id="ctaExploreProducts">
+            <span>Explore Products</span>
+            <span class="btn-icon-bubble" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <a href="#services" class="btn-cta-secondary" id="ctaOurServices">
+            <svg class="service-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span>Our Services</span>
+          </a>
+        </div>
+
+        <!-- Trust Highlights Bar (Neutral, Verified Service Highlights) -->
+        <div class="trust-metrics-bar" aria-label="Service Highlights">
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true">⚡</span>
+            <span class="trust-text">Hardware Solutions</span>
+          </div>
+          <span class="trust-divider" aria-hidden="true">|</span>
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true">🛠️</span>
+            <span class="trust-text">Repair &amp; Diagnostics</span>
+          </div>
+          <span class="trust-divider" aria-hidden="true">|</span>
+          <div class="trust-item">
+            <span class="trust-icon" aria-hidden="true">💼</span>
+            <span class="trust-text">Business IT Support</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Motion & Orbital Control Console -->
+      <aside class="orbit-controls-bar" id="orbitControlsBar" aria-label="Orbital Showcase Controls">
+        <div class="controls-pill">
+          <!-- Play / Pause Toggle -->
+          <button type="button" class="ctrl-btn" id="ctrlPlayPause" title="Pause / Resume Orbit" aria-label="Pause animation">
+            <svg id="iconPause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+              <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+            </svg>
+            <svg id="iconPlay" class="hidden" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+
+          <span class="ctrl-separator" aria-hidden="true"></span>
+
+          <!-- Product Quick Dots Indicator -->
+          <div class="product-dots-group" id="productDotsGroup" role="tablist" aria-label="Select hardware product">
+            <!-- 8 product indicator dots rendered via JS -->
+          </div>
+
+          <span class="ctrl-separator" aria-hidden="true"></span>
+
+          <!-- Direction Toggle -->
+          <button type="button" class="ctrl-btn" id="ctrlReverse" title="Reverse Orbit Direction" aria-label="Reverse direction">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+          </button>
+
+          <!-- Speed Toggle -->
+          <button type="button" class="ctrl-btn speed-toggle-btn" id="ctrlSpeed" title="Cycle Orbit Speed" aria-label="Change speed">
+            <span id="speedLabel">1.0x</span>
+          </button>
+        </div>
+
+        <!-- Drag Hint Pill -->
+        <div class="drag-hint" id="dragHint">
+          <span>↔ Drag horizontally to explore the orbit ↔</span>
+        </div>
+      </aside>
+    </main>
+
+    <!-- PRODUCT QUICK VIEW MODAL / DRAWER -->
+    <div class="product-modal-backdrop" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+      <div class="product-modal-card">
+        <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close product details">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="modal-body">
+          <div class="modal-image-col">
+            <div class="modal-img-frame">
+              <img id="modalProductImg" src="" alt="Product Showcase" />
+            </div>
+            <div class="modal-category-tag" id="modalCategoryTag">Hardware</div>
+          </div>
+
+          <div class="modal-info-col">
+            <div class="modal-badge-row">
+              <span class="modal-status-badge" id="modalStatusBadge">Hardware Solutions</span>
+              <span class="modal-warranty-badge">A2Z Computers</span>
+            </div>
+
+            <h2 class="modal-title" id="modalTitle">Product Name</h2>
+            <p class="modal-tagline" id="modalTagline">Product subtitle</p>
+
+            <div class="modal-specs-section">
+              <h3 class="modal-section-heading">Key Specifications</h3>
+              <ul class="modal-specs-list" id="modalSpecsList">
+                <!-- Specs injected dynamically -->
+              </ul>
+            </div>
+
+            <div class="modal-services-note">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Custom upgrades, corporate bulk supply, and same-day setup available through A2Z Computers.</span>
+            </div>
+
+            <div class="modal-actions-row">
+              <button type="button" class="btn-cta-primary" id="btnModalEnquire">
+                <span>Enquire This Hardware</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+              <button type="button" class="btn-cta-secondary" id="btnModalCloseSecondary">
+                <span>Back to Orbit</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK ENQUIRY MODAL -->
+    <div class="product-modal-backdrop" id="enquiryModal" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle" aria-hidden="true">
+      <div class="product-modal-card enquiry-modal-card">
+        <button type="button" class="modal-close-btn" id="enquiryCloseBtn" aria-label="Close enquiry form">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="enquiry-modal-content">
+          <div class="enquiry-header">
+            <div class="hero-badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span class="badge-text">CONNECT WITH TECH EXPERTS</span>
+            </div>
+            <h2 class="enquiry-title" id="enquiryTitle">Get in Touch with A2Z Computers</h2>
+            <p class="enquiry-desc">Looking for custom PC configurations, bulk enterprise orders, or urgent diagnostic repair? Speak directly with our hardware specialists.</p>
+          </div>
+
+          <form class="enquiry-form" id="enquiryForm" onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="enquiryName">Full Name</label>
+                <input type="text" id="enquiryName" placeholder="e.g. Alex Henderson" required />
+              </div>
+              <div class="form-group">
+                <label for="enquiryEmail">Email Address</label>
+                <input type="email" id="enquiryEmail" placeholder="alex@company.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="enquiryCategory">Interested Category</label>
+                <select id="enquiryCategory">
+                  <option value="Laptops">Laptops &amp; Ultrabooks</option>
+                  <option value="Workstations">Custom PC &amp; Workstations</option>
+                  <option value="Monitors">Curved &amp; 4K Displays</option>
+                  <option value="Printers">Office &amp; Laser Printers</option>
+                  <option value="Peripherals">Keyboards &amp; Mice</option>
+                  <option value="Repairs">Diagnostics &amp; Repair Service</option>
+                  <option value="Enterprise">Enterprise Bulk IT Supply</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="enquiryPhone">Phone / WhatsApp</label>
+                <input type="tel" id="enquiryPhone" placeholder="+1 (555) 000-0000" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="enquiryMessage">Project Details / Requirements</label>
+              <textarea id="enquiryMessage" rows="3" placeholder="Tell us about the specifications, quantity, or repair timeline you need..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-cta-primary btn-submit" id="btnSubmitEnquiry">
+                <span>Submit Tech Enquiry</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+            <div class="form-success-msg hidden" id="enquirySuccessMsg">
+              ✓ Frontend Demo: Enquiry details received locally. (Connect your backend or API endpoint for production messaging).
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

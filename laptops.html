@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laptops — A2Z Computers | New & Refurbished Laptops</title>
+  <meta name="description" content="Explore certified new and refurbished laptops from ASUS, Dell, HP, Apple, Lenovo, and Acer at A2Z Computers Mumbai.">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="laptops.css">
+</head>
+<body>
+  <div class="laptops-page-wrapper">
+    <!-- Top Decorative Atmosphere -->
+    <div class="page-ambient-glow" aria-hidden="true"></div>
+
+    <!-- SITE HEADER -->
+    <header class="laptops-header">
+      <div class="header-container">
+        <!-- Brand Wordmark -->
+        <a href="index.html" class="brand-wordmark" aria-label="A2Z Computers Home">
+          <div class="brand-logo-badge">A2Z</div>
+          <div class="brand-title-wrap">
+            <span class="brand-name">A2Z</span>
+            <span class="brand-subtitle">COMPUTERS</span>
+          </div>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="header-nav" aria-label="Laptops Navigation">
+          <a href="index.html" class="nav-back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back to Home Orbit</span>
+          </a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-right-actions">
+          <a href="monitors.html" class="nav-category-link">
+            <span>Monitors</span>
+          </a>
+          <a href="desktops.html" class="nav-category-link">
+            <span>Desktop PCs</span>
+          </a>
+          <a href="index.html" class="btn-contact-tech">
+            <span>Enquire Custom Spec</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN LISTING CONTENT -->
+    <main class="laptops-main-content">
+      <!-- Title & Search Bar Hero -->
+      <section class="listing-hero">
+        <div class="hero-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span class="badge-text">HARDWARE SHOWCASE • CERTIFIED LAPTOPS</span>
+        </div>
+
+        <h1 class="page-title">
+          <span>Laptops</span>
+        </h1>
+        <p class="page-subtitle">
+          Explore brand-new high-performance creator &amp; gaming machines alongside certified refurbished enterprise workhorses.
+        </p>
+
+        <!-- Search & Control Row -->
+        <div class="search-sort-bar">
+          <div class="search-input-wrap">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="laptopSearchInput" class="search-input" placeholder="Search by model, processor, brand (e.g. OLED, XPS, M3, RTX)..." aria-label="Search laptops">
+            <button type="button" id="clearSearchBtn" class="clear-search-btn hidden" aria-label="Clear search">✕</button>
+          </div>
+
+          <div class="sort-select-wrap">
+            <label for="laptopSortSelect" class="sort-label">Sort by:</label>
+            <select id="laptopSortSelect" class="sort-select">
+              <option value="featured">Featured First</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- TWO PROMINENT TABS: NEW vs REFURBISHED -->
+        <div class="inventory-tabs-container">
+          <div class="tabs-slider-track" role="tablist" aria-label="Laptop Categories">
+            <!-- Smooth Sliding Tab Highlight Indicator -->
+            <div class="tab-indicator-pill" id="tabIndicatorPill"></div>
+
+            <button type="button" class="tab-btn active" id="tabNew" role="tab" aria-selected="true" aria-controls="laptopGrid" data-tab="new">
+              <span class="tab-title">New Laptops</span>
+              <span class="tab-count-badge" id="countNewBadge">12</span>
+            </button>
+
+            <button type="button" class="tab-btn" id="tabRefurbished" role="tab" aria-selected="false" aria-controls="laptopGrid" data-tab="refurbished">
+              <span class="tab-title">Refurbished</span>
+              <span class="tab-count-badge" id="countRefurbBadge">6</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- BRAND FILTERS -->
+        <div class="brand-filters-wrap" role="group" aria-label="Filter by brand">
+          <span class="brand-filter-label">Filter Brand:</span>
+          <div class="brand-filter-chips" id="brandFilterChips">
+            <button type="button" class="brand-chip active" data-brand="all">All Brands</button>
+            <button type="button" class="brand-chip" data-brand="ASUS">ASUS</button>
+            <button type="button" class="brand-chip" data-brand="Dell">Dell</button>
+            <button type="button" class="brand-chip" data-brand="HP">HP</button>
+            <button type="button" class="brand-chip" data-brand="Apple">Apple</button>
+            <button type="button" class="brand-chip" data-brand="Lenovo">Lenovo</button>
+            <button type="button" class="brand-chip" data-brand="Acer">Acer</button>
+          </div>
+        </div>
+
+        <!-- Inventory Demo Notice -->
+        <div class="catalog-demo-notice">
+          <span class="notice-icon">ℹ️</span>
+          <span>Sample Catalog Data: Actual in-store stock availability, custom RAM/SSD configuration, and corporate pricing are verified directly at the A2Z Mumbai tech desk.</span>
+        </div>
+      </section>
+
+      <!-- RESULTS COUNT & ACTIVE FILTER INFO -->
+      <section class="results-header-row">
+        <div class="results-count-text">
+          Showing <strong id="visibleCountText">12</strong> <span id="currentCategoryText">New Laptops</span>
+        </div>
+        <div id="activeFilterTags" class="active-filters-tags"></div>
+      </section>
+
+      <!-- PRODUCT GRID -->
+      <section class="products-grid-section">
+        <div class="products-grid" id="laptopGrid">
+          <!-- Populated dynamically via laptops.js -->
+        </div>
+
+        <!-- Empty state when search/filter has zero matches -->
+        <div class="empty-results-box hidden" id="emptyResultsBox">
+          <div class="empty-icon">🔍</div>
+          <h3>No matching laptops found</h3>
+          <p>Try searching with another keyword or resetting the brand filter to see all inventory.</p>
+          <button type="button" class="btn-reset-filters" id="btnResetFilters">Reset Filters</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="laptops-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <span class="footer-logo">A2Z COMPUTERS</span>
+          <span class="footer-tagline">Hardware Solutions • Diagnostics &amp; Repair • Business IT Support</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home Orbit</a>
+          <a href="laptops.html" class="active">Laptops</a>
+          <a href="monitors.html">Monitors</a>
+          <a href="desktops.html">Desktop PCs</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#enquiry">Enquire</a>
+        </div>
+        <div class="footer-copy">
+          © 2026 A2Z Computers. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Shared Data & Logic -->
+  <script src="laptops-data.js"></script>
+  <script src="laptops.js"></script>
+</body>
+</html>
