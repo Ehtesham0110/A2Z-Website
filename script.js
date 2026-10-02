@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const PRODUCTS = [
     {
       id: 'laptop',
-      name: 'Laptops',
+      name: 'Laptop',
       tagline: 'Work • Study • Create',
       category: 'Mobile Computing',
       badge: 'Hardware Solutions',
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'desktop-tower',
-      name: 'Desktop PCs',
+      name: 'Desktop PC',
       tagline: 'Custom Builds',
       category: 'Workstations',
       badge: 'Custom Assembly',
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'monitor',
-      name: 'Monitors',
+      name: 'Monitor',
       tagline: '4K • Ultrawide • IPS',
       category: 'Displays',
       badge: 'Studio Displays',
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'printer',
-      name: 'Printers',
+      name: 'Printer',
       tagline: 'Home • Office • Business',
       category: 'Printing & Imaging',
       badge: 'Office Equipment',
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'keyboard',
-      name: 'Keyboards',
+      name: 'Keyboard',
       tagline: 'Mechanical • Wireless',
       category: 'Input Devices',
       badge: 'Input Hardware',
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'mouse',
-      name: 'Mice',
+      name: 'Mouse',
       tagline: 'Precision • Ergonomic',
       category: 'Input Devices',
       badge: 'Input Hardware',
@@ -241,14 +241,16 @@ document.addEventListener('DOMContentLoaded', () => {
       tile.setAttribute('role', 'button');
       tile.setAttribute('aria-label', `View details for ${product.name}`);
 
+      const hoverAction = product.id === 'laptop' ? 'Explore Laptops →' : (product.id === 'monitor' ? 'Explore Monitors →' : (product.id === 'desktop-tower' ? 'Explore Desktop PCs →' : 'View Specs →'));
+
       tile.innerHTML = `
-        <div class="tile-hover-pill">${product.id === 'laptop' ? 'Explore Laptops →' : (product.id === 'monitor' ? 'Explore Monitors →' : (product.id === 'desktop-tower' ? 'Explore Desktop PCs →' : 'Inspect Specs'))}</div>
+        <div class="tile-hover-pill">${hoverAction}</div>
         <div class="tile-image-box">
           <img class="tile-img" src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null; this.src='assets/products/laptop.jpg';" />
         </div>
         <div class="tile-caption">
           <div class="tile-title">${product.name}</div>
-          <div class="tile-tag">${product.tagline}</div>
+          <div class="tile-indicator-bar" aria-hidden="true"></div>
         </div>
       `;
 
@@ -325,31 +327,31 @@ document.addEventListener('DOMContentLoaded', () => {
     viewportHeight = window.innerHeight;
     centerX = viewportWidth / 2;
 
-    // Card sizing per breakpoint
+    // Card sizing and orbital trajectory geometry per breakpoint
     if (viewportWidth <= 480) {
-      cardWidth = 140;
-      cardHeight = 140;
-      centerY = viewportHeight * 0.46;
-      radiusX = (viewportWidth / 2) + cardWidth * 0.35;
-      radiusY = Math.min(115, viewportHeight * 0.16);
+      cardWidth = 145;
+      cardHeight = 158;
+      centerY = viewportHeight * 0.48;
+      radiusX = Math.min(viewportWidth * 0.44, 185);
+      radiusY = Math.min(viewportHeight * 0.20, 135);
     } else if (viewportWidth <= 768) {
-      cardWidth = 164;
-      cardHeight = 164;
-      centerY = viewportHeight * 0.47;
-      radiusX = (viewportWidth / 2) + cardWidth * 0.45;
-      radiusY = Math.min(140, viewportHeight * 0.18);
+      cardWidth = 175;
+      cardHeight = 185;
+      centerY = viewportHeight * 0.49;
+      radiusX = Math.min(viewportWidth * 0.46, 320);
+      radiusY = Math.min(viewportHeight * 0.21, 150);
     } else if (viewportWidth <= 1024) {
-      cardWidth = 190;
-      cardHeight = 190;
-      centerY = viewportHeight * 0.47;
-      radiusX = (viewportWidth / 2) + cardWidth * 0.50;
-      radiusY = Math.min(155, viewportHeight * 0.19);
+      cardWidth = 195;
+      cardHeight = 205;
+      centerY = viewportHeight * 0.50;
+      radiusX = Math.min(viewportWidth * 0.46, 440);
+      radiusY = Math.min(viewportHeight * 0.22, 165);
     } else {
-      cardWidth = 210;
-      cardHeight = 210;
-      centerY = viewportHeight * 0.47;
-      radiusX = (viewportWidth / 2) + cardWidth * 0.54;
-      radiusY = Math.min(175, viewportHeight * 0.21);
+      cardWidth = 220;
+      cardHeight = 225;
+      centerY = viewportHeight * 0.50;
+      radiusX = Math.min(viewportWidth * 0.46, 580);
+      radiusY = Math.min(viewportHeight * 0.22, 175);
     }
 
     // Update SVG guide track path for subtle visual reference
@@ -437,33 +439,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const posY = centerY + radiusY * nz * 1.02;
 
       // 3D rotations:
-      // rotZ: tilt matching the curve tangent (like Kumo: tilted left on left, tilted right on right)
-      let rotZ = 0;
-      if (nz >= 0) {
-        // Foreground: tilts along tangent: negative on left, positive on right
-        rotZ = nx * 22; // tasteful max ~22deg
-      } else {
-        // Background: subtle reverse tilt as it returns
-        rotZ = -nx * 14;
-      }
-
-      // 3D perspective tilts:
-      const rotY = -nx * 16; // subtle turn toward viewer
-      const rotX = nz * 10 - 4; // slight pitch
+      // Cards stand upright and stately along the orbit like the reference image
+      const rotZ = nx * 3.5; // very subtle natural banking along curve (max 3.5deg)
+      const rotY = -nx * 18; // smooth orientation toward the camera
+      const rotX = nz * 5 - 2; // slight natural pitch
 
       // Scale & Depth calculations:
-      // Depth factor d in [0, 1] where 1 is closest foreground, 0 is back
       const depthFactor = (nz + 1) / 2;
-      const scale = 0.74 + depthFactor * 0.34; // 0.74 to 1.08
-      const opacity = 0.48 + depthFactor * 0.52; // 0.48 to 1.0
+      const scale = 0.78 + depthFactor * 0.30; // 0.78 to 1.08
+      const opacity = 0.52 + depthFactor * 0.48; // 0.52 to 1.0
 
-      // Z-index: Foreground cards sit above central hero (z=20), background cards sit below
+      // Z-index: Foreground cards sit above, background cards sit below
       let zIndex = 10;
       if (nz > 0.05) {
-        // Foreground
         zIndex = 30 + Math.round(depthFactor * 10);
       } else {
-        // Background
         zIndex = 5 + Math.round(depthFactor * 8);
       }
 
@@ -473,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
         closestIndex = i;
       }
 
-      // Optional subtle blur on far background tiles for enhanced optical depth
+      // Optional subtle blur on far background tiles for optical depth
       const blurAmount = nz < -0.3 ? (Math.abs(nz) - 0.3) * 1.8 : 0;
       const filter = blurAmount > 0.2 ? `blur(${blurAmount.toFixed(1)}px)` : 'none';
 
@@ -486,6 +476,17 @@ document.addEventListener('DOMContentLoaded', () => {
       tile.style.opacity = opacity.toFixed(3);
       tile.style.zIndex = zIndex;
       tile.style.filter = filter;
+    }
+
+    // Toggle .is-front class on the active foreground product
+    for (let i = 0; i < numItems; i++) {
+      if (tileElements[i]) {
+        if (i === closestIndex) {
+          tileElements[i].classList.add('is-front');
+        } else {
+          tileElements[i].classList.remove('is-front');
+        }
+      }
     }
 
     // 3. Update active dot indicator in bottom controls
@@ -673,20 +674,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === enquiryModal) closeEnquiryModal();
   });
 
-  // Central Hero CTAs
+  // Central Hero CTAs (safely guarded if removed)
   const ctaExploreProducts = document.getElementById('ctaExploreProducts');
   const ctaOurServices = document.getElementById('ctaOurServices');
 
-  ctaExploreProducts.addEventListener('click', (e) => {
-    e.preventDefault();
-    // Smoothly snap to top laptop
-    snapToProduct(0);
-  });
+  if (ctaExploreProducts) {
+    ctaExploreProducts.addEventListener('click', (e) => {
+      e.preventDefault();
+      snapToProduct(0);
+    });
+  }
 
-  ctaOurServices.addEventListener('click', (e) => {
-    e.preventDefault();
-    openEnquiryModal('Repairs');
-  });
+  if (ctaOurServices) {
+    ctaOurServices.addEventListener('click', (e) => {
+      e.preventDefault();
+      openEnquiryModal('Repairs');
+    });
+  }
 
   // Form Submission
   enquiryForm.addEventListener('submit', (e) => {
@@ -733,11 +737,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (targetNav) {
         e.preventDefault();
         closeMobileMenu();
-        if (targetNav === 'products') snapToProduct(0);
-        else if (targetNav === 'custom-builds') snapToProduct(1);
+        if (targetNav === 'home') snapToProduct(0);
+        else if (targetNav === 'accessories') snapToProduct(7);
         else if (targetNav === 'repairs') openEnquiryModal('Repairs');
         else if (targetNav === 'business') openEnquiryModal('Enterprise');
-        else if (targetNav === 'about') snapToProduct(7);
+        else if (targetNav === 'products') snapToProduct(0);
+        else if (targetNav === 'custom-builds') snapToProduct(1);
       }
     });
   });

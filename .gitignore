@@ -1,0 +1,16 @@
+
+# Temporary browser profile and test artifacts
+.tmp_eval/
+clean_desktop.png
+clean_mobile.png
+coords_out.txt
+crop_header.png
+diag.html
+diag_out.txt
+dumped_index.html
+eval_res.txt
+overflow_out.txt
+test_eval.html
+test_fetch.html
+test_fresh_mobile.png
+widths_out.txt
